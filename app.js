@@ -1,6 +1,7 @@
 /* Only public Supabase values belong here. Never expose service_role. */
 const SUPABASE_URL = "https://ytvrguqcgbynoxhimtei.supabase.co", SUPABASE_ANON_KEY = "sb_publishable_S_7pQstImvcCAPeF68m5Sw_t7U-vvnz", MAX_FILE_SIZE = 50 * 1024 * 1024;
 const db = SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+let contactFormSubmitted = false;
 const $ = s => document.querySelector(s); let posts=[], mediaByPost=new Map(), commentsByPost=new Map(), likesByPost=new Map(), selectedFiles=[], session, channel, visible=10, gallery=[], galleryIndex=0, introDone=false;
 const formatTime = d => new Intl.DateTimeFormat(undefined,{day:"numeric",month:"short",hour:"numeric",minute:"2-digit"}).format(new Date(d));
 const urlFor = m => m.previewUrl || (db ? db.storage.from("post-media").getPublicUrl(m.storage_path).data.publicUrl : m.storage_path);
