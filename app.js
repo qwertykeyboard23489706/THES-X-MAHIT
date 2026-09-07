@@ -60,6 +60,15 @@ function intro(){
 }
 
 function bind(){
+
+  $("#form").addEventListener("submit",()=>{
+    contactFormSubmitted = true;
+  });
+
+  $("#closeSuccessDialog").onclick=()=>{
+    $("#successDialog").close();
+  };
+
   $("#enableSound").onclick=()=>{
     sessionStorage.setItem("mw-sound-choice","yes");
     setMusic(true,true);
