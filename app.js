@@ -83,7 +83,21 @@ function bind(){
 
   $("#addMemory").onclick=()=>$("#memoryDialog").showModal();$("#closeMemoryDialog").onclick=()=>$("#memoryDialog").close();$("#viewAll").onclick=()=>$("#feed").scrollIntoView();$("#soundToggle").onclick=()=>setMusic(sessionStorage.getItem("mw-music")==="off");$("#mediaInput").onchange=e=>{try{const add=[...e.target.files];validate(add);add.forEach(f=>{f.previewUrl=URL.createObjectURL(f);selectedFiles.push(f)});e.target.value="";previews()}catch(err){alert(err.message);e.target.value=""}};$("#previewPost").onclick=()=>{if(!$("#memoryForm").reportValidity())return;const p=$("#postPreview");p.replaceChildren();const b=document.createElement("b");b.textContent=$("#displayName").value;p.append(b,document.createElement("br"));addLinks(p,$("#message").value);p.append(document.createElement("br"),document.createTextNode(selectedFiles.length?`${selectedFiles.length} media attachment(s)`:"Text memory"));$("#confirmDialog").showModal()};$("#cancelPreview").onclick=()=>$("#confirmDialog").close();$("#backToEdit").onclick=()=>$("#confirmDialog").close();$("#publishPost").onclick=publish;$("#loadMore").onclick=()=>{visible+=10;renderFeed()};$("#closeLightbox").onclick=()=>$("#lightbox").close();$("#lightbox .prev").onclick=()=>{galleryIndex=(galleryIndex-1+gallery.length)%gallery.length;showGallery()};$("#lightbox .next").onclick=()=>{galleryIndex=(galleryIndex+1)%gallery.length;showGallery()}}
 function particles(){const c=$("#particles"),x=c.getContext("2d"),d=Array.from({length:45},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.6+.3,v:Math.random()*.18+.03}));(function draw(){c.width=innerWidth;c.height=innerHeight;x.clearRect(0,0,c.width,c.height);d.forEach(a=>{if((a.y-=a.v)<0)a.y=innerHeight;x.fillStyle="rgba(112,229,255,.35)";x.beginPath();x.arc(a.x,a.y,a.r,0,7);x.fill()});requestAnimationFrame(draw)})()}
+function formSent(){
+  if(!contactFormSubmitted)return;
+
+  contactFormSubmitted=false;
+
+  const form=$("#form");
+  const dialog=$("#successDialog");
+
+  if(!form || !dialog)return;
+
+  form.reset();
+  dialog.showModal();
+}
 if(db)$("#configBanner").hidden=true;
+
 
 audio().volume=.25;
 
