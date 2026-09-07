@@ -65,9 +65,7 @@ function bind(){
     contactFormSubmitted = true;
   });
 
-  $("#closeSuccessDialog").onclick=()=>{
-    $("#successDialog").close();
-  };
+ 
 
   $("#enableSound").onclick=()=>{
     sessionStorage.setItem("mw-sound-choice","yes");
@@ -96,13 +94,23 @@ function formSent(){
   form.reset();
   dialog.showModal();
 }
+function formSent(){
+  if(!contactFormSubmitted)return;
+
+  contactFormSubmitted=false;
+
+  const form=$("#form");
+  const dialog=$("#successDialog");
+
+  if(!form || !dialog)return;
+
+  form.reset();
+  dialog.showModal();
+}
+
 if(db)$("#configBanner").hidden=true;
-
-
 audio().volume=.25;
-
 setMusic(false,false);
-
 bind();
 particles();
 intro();
