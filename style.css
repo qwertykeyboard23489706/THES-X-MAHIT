@@ -104,3 +104,67 @@
     flex-direction: column;
   }
 }
+/* ───────── FUTURISTIC TRANSMIT BUTTON ───────── */
+
+.transmit-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 15px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid rgba(112, 229, 255, .45);
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 229, 255, .14),
+    rgba(125, 121, 255, .14)
+  );
+
+  color: #eafcff;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .06em;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 22px rgba(112, 229, 255, .08),
+    inset 0 0 20px rgba(112, 229, 255, .03);
+
+  transition: .25s ease;
+}
+
+.transmit-btn strong {
+  font-size: 21px;
+  font-weight: 400;
+  transition: transform .25s ease;
+}
+
+.transmit-btn:hover {
+  border-color: rgba(112, 229, 255, .9);
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 229, 255, .24),
+    rgba(125, 121, 255, .22)
+  );
+
+  box-shadow:
+    0 0 30px rgba(112, 229, 255, .18),
+    inset 0 0 25px rgba(112, 229, 255, .05);
+
+  transform: translateY(-2px);
+}
+
+.transmit-btn:hover strong {
+  transform: translateX(5px);
+}
+
+.transmit-btn:active {
+  transform: scale(.98);
+}
