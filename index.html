@@ -87,15 +87,26 @@ Message
   <template id="postTemplate"><article class="post"><div class="post-head"><div class="avatar"></div><div><b class="post-name"></b><time></time></div><span class="post-badge">MEMORY</span></div><p class="post-content"></p><div class="post-media"></div><div class="post-actions"><button class="like">♡ <span>0</span></button><button class="comment-toggle">⌁ Reply</button></div><div class="comments"></div><form class="comment-form"><input maxlength="500" placeholder="Leave a reply…"><button>Send</button></form></article></template>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="app.js"></script>
 
-  <dialog id="successDialog" class="success-dialog">
+ <dialog id="successDialog" class="success-dialog">
   <div class="success-dialog-box">
+
+    <div class="success-glow"></div>
+
     <div class="success-icon">✓</div>
-    <p class="eyebrow">TRANSMISSION COMPLETE ✦</p>
+
+    <div class="eyebrow">TRANSMISSION COMPLETE ✦</div>
+
     <h2>Message Sent!</h2>
-    <p>Your message has been successfully transmitted to THES.</p>
-    <button type="button" class="success-close" id="closeSuccessDialog">
-      Continue →
+
+    <p>
+      Your message has been successfully transmitted to THES.
+    </p>
+
+    <button type="button" id="closeSuccessDialog" class="success-close">
+      <span>Continue</span>
+      <strong>→</strong>
     </button>
+
   </div>
 </dialog>
 </body></html>
